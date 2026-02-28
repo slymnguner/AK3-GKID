@@ -4,7 +4,7 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=Wild Kernels by TheWildJames aka Morgan Weedman
+kernel.string=GKI-Duchamp by Ahmed Al-Nassif (ahmed-alnassif)
 do.devicecheck=0
 do.modules=0
 do.systemless=0
@@ -32,15 +32,12 @@ no_magisk_check=1
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh
 
-kernel_version=$(cat /proc/version | awk -F '-' '{print $1}' | awk '{print $3}')
-case $kernel_version in
-    5.1*) ksu_supported=true ;;
-    6.1*) ksu_supported=true ;;
-    6.6*) ksu_supported=true ;;
-    *) ksu_supported=false ;;
-esac
+ksu_supported=false
+supported_kernel="6.1"
+kernel_version=$(uname -r | awk -F '.' '{print $1"."$2}')
+[[ "$kernel_version" == "$supported_kernel" ]] && ksu_supported=true
 
-ui_print " " "  -> Wild Kernels Supported: $ksu_supported"
+ui_print " " "  -> GKI-Duchamp Supported: $ksu_supported"
 $ksu_supported || abort "  -> Non-GKI device, abort."
 
 # boot install
