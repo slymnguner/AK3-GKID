@@ -2,7 +2,7 @@
 ## osm0sis @ xda-developers
 
 properties() { '
-kernel.string=GKID by Ahmed Al-Nassif (ahmed-alnassif)
+kernel.string=GKID by slymnguner (slymnguner)
 do.devicecheck=0
 do.modules=0
 do.systemless=0
@@ -34,8 +34,6 @@ kernel_version=$(uname -r | awk -F '.' '{print $1"."$2}')
 
 ui_print " " "  -> GKID Supported: $kernel_supported"
 ui_print "Thank you for using GKID ❤️"
-ui_print "Please join our community if you need help with anything:"
-ui_print "Telegram: https://t.me/ahmed_alnassif_tg"
 $kernel_supported || abort "  -> Unsupported device, abort."
 
 split_boot
